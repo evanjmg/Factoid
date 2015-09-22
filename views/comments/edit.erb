@@ -1,0 +1,8 @@
+<h2>Edit a Fact</h2>
+<form action="/facts/<%= "#{@fact.id}" %>" method='post'id='edit'>
+  <label for="fact[title]">Title:</label>
+  <input type="text" name="fact[title]" id="title" "<%= "#{@fact.title}" %>">
+  <label for="fact[body]" >Fact:</label>
+  <input type="text" name="fact[body]" id="fact" value="<%= "#{@fact.body}" %>">
+  <input type="submit" value="Submit Fact">
+</form>

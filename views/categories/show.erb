@@ -1,0 +1,18 @@
+<section>
+  <h2><%= @category.name.capitalize %></h2>
+  <a href="<%= @category.id %>/edit" class='edit-name'><button type="submit">Edit</button></a>
+  <p>
+    <% @category.facts.each do |fact| %>
+    <li><a href="/facts/<%= fact.id %>"><%= fact.title %></a></li><% end %>
+  </p>
+
+  <form action="/categorys/<%= @category.id %>/delete" method="post">
+    <input name="_method" type="hidden" value="delete" />
+    <button type="submit">Delete</button>
+  </form>
+</section>
+<h2>Other Interesting categorys</h2>
+<% @categorys.each do |category| %>
+<li class="bottom-facts"><a href="/categorys/<%= category.id %>"><%= category.title %></a></li>
+
+<% end %>

@@ -1,0 +1,23 @@
+<section>
+<h2><%= @fact.title.capitalize %></h2>
+<% username = if @fact.user.nil?
+  'Anonymous'
+else 
+  @fact.user.name
+end
+%>
+<h4>by <%= username %></h4>
+<p>
+<%= @fact.body %>
+</p>
+<a href="<%= @fact.id %>/edit"><button type="submit">Edit</button></a>
+<form action="/facts/<%= @fact.id %>/delete" method="post">
+    <input name="_method" type="hidden" value="delete" />
+    <button type="submit">Delete</button>
+</form>
+</section>
+<h2>Other Interesting Facts</h2>
+<% @facts.each do |fact| %>
+  <li><a href="/facts/<%= fact.id %>"><%= fact.title %></a></li>
+
+<% end %>

@@ -1,0 +1,16 @@
+<section>
+<h2><%= @user.name.capitalize %></h2>
+<h3>
+<%= @user.email %></h3>
+</p>
+<a href="<%= @user.id %>/edit"><button type="submit">Edit</button></a>
+<form action="/users/<%= @user.id %>/delete" method="post">
+    <input name="_method" type="hidden" value="delete" />
+    <button type="submit">Delete</button>
+</form>
+
+</section>
+<h2>Other Users</h2>
+<% @users.each do |user| %>
+  <li class="bottom-facts"><a href="/users/<%= user.id %>"><%= user.name %></a></li>
+<% end %>

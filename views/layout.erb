@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Factoid</title>
+  <meta name="viewport" content="width=device-width">
+  <link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400,800,700,600,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="/js/app.js"></script>
+</head>
+<body >
+  <div id="main-container"class="wrapper" >
+    <header>
+
+      <h1><a href="/facts">Factoid</a></h1>
+      <h3>Instant Facts and Advice</h3>
+      <a href="#" id="menu">&#9776;</a>
+      <ul id="desktop-header">
+       <li><form action="/search" method="post"><input type="text" name="search" id="search"><button>Search</button></form></li>
+       <li><a href="/facts/new">Post a Fact</a></li>
+       
+       <li><a href="/facts">Popular Facts</a></li>
+       <li><a href="/users/new">Sign up</a></li>
+       <!-- <li><a href="/categories">Categories</a></li> -->
+     </ul>
+   </header>
+   <div id="content-container">
+    <%= yield %>
+  </div>
+</div>
+<footer class="push">&copy; 2015 Evan Gillogley </footer>
+</body>
+</html>

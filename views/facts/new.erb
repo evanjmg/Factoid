@@ -1,0 +1,11 @@
+<h2>Write a Fact</h2>
+<form action="/facts" method='post'>
+  <label for="facts[title]">Title:</label>
+  <input type="text" name="fact[title]" id="title">
+  <label for="facts[body]" >Fact:</label>
+  <input type="text" name="fact[body]" id="fact">
+<% @categories.each do |category| %>
+  <input type="checkbox" name="fact.categories[id]" value="<%= category.id %>"><%= category.name %><br>
+  <% end %>
+  <button>Submit Fact</button>
+</form>

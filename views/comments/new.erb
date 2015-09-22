@@ -1,0 +1,19 @@
+
+<h2><%= @fact.title.capitalize %></h2>
+<% username = if @fact.user.nil?
+  'Anonymous'
+else 
+  @fact.user.name
+end
+%>
+<h4>by <%= username %></h4>
+<p>
+<%= @fact.body %>
+</p>
+
+<h4> Write a Comment</h3>
+<form action="facts/<%= fact.id %>/comments/new" method='post'>
+  <label for="comments[body]">Comment:</label>
+  <input type="text" name="comment[body]" id="comment">
+  <button>Submit Comment</button>
+</form>

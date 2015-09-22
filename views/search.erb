@@ -1,0 +1,26 @@
+<h3 id="p">Search Facts by '<%= @search %>'</h3>
+
+<form action="/filter" method="post" id="fact-filter">
+  <select name="/filter" id="">
+    <option value="Most Likes">Most Likes</option>
+    <option value="Most Comments">Most Comments</option>
+    <option value="Least Likes"> Least Likes</option>
+    <option value="Least Comments">Least Comments</option>
+  </select>
+</form>
+
+<ul id="index">
+  <% if @facts.empty? %>
+  <p>
+    No results found for '<%= @search %>', please search again.</p>
+    <% else %>
+    <% @facts[0,20].each do |fact| %>
+    <a href="/facts/<%= fact.id %>"><li>
+      <h4><%= fact.title[0,15].capitalize %></h4>
+      <p>
+        <%= fact.body[0,25].to_s.capitalize %>...
+      </p>
+    </li></a>
+    <% end %>
+    <% end %>
+  </ul>

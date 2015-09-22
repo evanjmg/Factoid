@@ -1,0 +1,55 @@
+<section>
+  <h2><%= @fact.title.capitalize %>
+  <div id="likes">
+    <form action="/facts/<%= @fact.id %>/likes/new" method="post">
+      <button id='like-button' type="submit" value="Like" name="like"><img src="../images/unfilled-star.png" width="17" alt="" id="star"> </button></form>
+      <h4>
+          <%= @fact.likes.length%>  Likes </h4></div></h2>
+
+      <% username = if @fact.user.nil?
+        'Anonymous'
+      else 
+        @fact.user.name
+      end
+      %>
+      <h4>by <%= username %></h4>
+      <p id="fact-body">
+        <%= @fact.body %>
+      </p>
+      <div class='edit-fact-container'>
+        <a href="<%= @fact.id %>/edit"><button type="submit"class='show-page-button' >Edit</button></a>
+        <form action="/facts/<%= @fact.id %>/delete" method="post">
+          <input name="_method" type="hidden" value="delete" />
+          <button type="submit" class="show-page-button">Delete</button>
+        </form>
+      </div>
+      <ul id='comments'>
+        <% @fact.comments.each do |single_comment|  %>
+        <li class="comment">
+          <a href="/users/<%= single_comment.user_id %>"></a>
+          <span class="comment-body">    <%= single_comment.body %></span>
+          <form class="edit-comment-body" action="/facts/<%= @fact.id %>/comments/<%= single_comment.id %>/edit" method="post">
+            <input class="edit-comment-input" type="text" value="<%= single_comment.body %>" name="comment[body]">
+          </form>
+          <div id='edit-comment-container'>
+            <form action="/facts/<%= @fact.id %>/comments/<%= single_comment.id %>/delete" method="post">
+              <input name="_method" type="hidden" value="delete" />
+              <button type="submit">Delete</button>
+            </form>
+            <button class="edit-comment" >Edit</button>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+      <ul>
+        <li id='enter-comment'>
+          <form action="/facts/<%= @fact.id %>/comments/new" method="post">
+            <input id="submit-comment" type="text" name="comment[body]" placeholder="Comment">
+          </form></li>
+        </ul>
+      </section>
+      <h2>Other Interesting Facts</h2>
+      <% @facts[0,5].each do |fact| %>
+      <li class="bottom-facts"><a href="/facts/<%= fact.id %>"><%= fact.title %></a></li>
+
+      <% end %>

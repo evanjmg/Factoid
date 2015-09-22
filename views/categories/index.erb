@@ -1,0 +1,18 @@
+<h2>Fact categories</h2>
+<h4>Filter Categories</h4>
+<form action="/filter" method="post">
+  <select name="/filter" id="">
+    <option value="Travel">Travel</option>
+    <option value="London">History</option>
+    <option value="History"> History</option>
+    <option value="Surprise me">Surprise me</option>
+  </select>
+</form>
+<ul id="categories">
+<% @categories.each do |category| %>
+  <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
+
+<% end %>
+</ul>
+
+
