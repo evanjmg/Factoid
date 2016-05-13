@@ -9,3 +9,4 @@ gem "sinatra-activerecord"
 gem "bundler"
 gem "pg"
 gem "tux"
+gem 'pry'

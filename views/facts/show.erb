@@ -26,7 +26,6 @@
       <ul id='comments'>
         <% @fact.comments.each do |single_comment|  %>
         <li class="comment">
-          <a href="/users/<%= single_comment.user_id %>"></a>
           <span class="comment-body">    <%= single_comment.body %></span>
           <form class="edit-comment-body" action="/facts/<%= @fact.id %>/comments/<%= single_comment.id %>/edit" method="post">
             <input class="edit-comment-input" type="text" value="<%= single_comment.body %>" name="comment[body]">

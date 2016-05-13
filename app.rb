@@ -1,9 +1,7 @@
+
 class App < Sinatra::Base
 
   use Rack::MethodOverride
-require_relative './controllers/comments_controller'
-require_relative './controllers/facts_controller'
-require_relative './controllers/users_controller'
   get '/' do
     redirect '/facts'
   end
